@@ -54,7 +54,7 @@
 ### Pasos
 
 ```bash
-git clone https://github.com/TU_USUARIO/FPKGi-Android.git
+git clone https://github.com/RastaFairy/FPKGi-Android.git
 cd FPKGi-Android
 ./gradlew assembleDebug
 # APK en: app/build/outputs/apk/debug/
