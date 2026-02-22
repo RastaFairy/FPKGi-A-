@@ -4,205 +4,184 @@
   <img src="https://img.shields.io/badge/Android-10%2B-3DDC84?logo=android" />
   <img src="https://img.shields.io/badge/Kotlin-2.0-7F52FF?logo=kotlin" />
   <img src="https://img.shields.io/badge/Jetpack_Compose-1.7-4285F4?logo=jetpackcompose" />
-  <img src="https://img.shields.io/badge/License-MIT-blue" />
-  <img src="https://img.shields.io/badge/version-5.11--FTP-00D4FF" />
+  <img src="https://img.shields.io/badge/license-MIT-blue" />
+  <img src="https://img.shields.io/badge/version-6.0-00D4FF" />
 </p>
 
 <p align="center">
-  Gestor de FPKGs para PS4 con soporte de <strong>descarga directa via FTP</strong>,<br>
-  integración con <strong>OrbisPatches</strong> y soporte de múltiples formatos de catálogo.
+  Native Android manager for PS4 Fake-PKG libraries.<br>
+  Browse your catalogue, check patch history via OrbisPatches,<br>
+  and send PKGs directly to your PS4 over Wi-Fi with no PC required.
 </p>
 
+> 🖥️ Looking for the **desktop (Python) app**? → [FPKGi-for-PY](https://github.com/RastaFairy/FPKGi-for-PY)
+
 ---
 
-## ✨ Características
+## ✨ Features
 
-| Función | Descripción |
+| Feature | Description |
 |---------|-------------|
-| 📂 **Carga de catálogos** | Soporta formato FPKGi dict y PS4PKGInstaller list |
-| 📡 **Descarga FTP** | Envía PKGs directamente a tu PS4 sin pasar por el PC |
-| ⬇️ **Descarga local** | Guarda PKGs en el almacenamiento del dispositivo |
-| 🔍 **Verificación** | Comprueba disponibilidad de PKGs via HTTP HEAD |
-| 🗂️ **OrbisPatches** | Consulta parches y actualizaciones disponibles |
-| 🌍 **Multiidioma** | UI en español, inglés y más |
-| 🎨 **Tema oscuro** | Diseño inspirado en la interfaz de PS4 |
+| 📂 **Dual JSON format** | FPKGi dict format + PS4PKGInstaller list format |
+| 📡 **FTP transfer** | Send PKGs directly to PS4 over local Wi-Fi — no PC needed |
+| ⬇️ **Local download** | Save PKGs to device storage |
+| ✅ **Availability check** | HTTP HEAD verification per game — live green/red status |
+| 🔍 **OrbisPatches** | Browse patch history and release notes per title |
+| 🌍 **Multilingual UI** | Spanish and English included |
+| 🎨 **PS4 dark theme** | Material 3 design inspired by the PS4 XMB interface |
+| ⚙️ **Persistent settings** | FTP host, port, credentials and remote path saved via DataStore |
 
 ---
 
-## 📋 Requisitos
+## 📋 Requirements
 
-### Android
-- Android 10+ (API 29) — compatible con todos los dispositivos Android desde 2020
-- Kotlin 2.0 / Jetpack Compose
+### Device
+- Android 10+ (API 29) — compatible with any Android device since 2020
 
-### Para descarga FTP
-- PS4 con servidor FTP activo:
-  - **GoldHEN FTP Server** (recomendado)
+### For FTP transfer
+- PS4 with an active FTP server:
+  - **GoldHEN FTP Server** *(recommended)*
   - PS4FTP Homebrew
-  - Cualquier servidor FTP en puerto 2121
-- PS4 y Android en la **misma red WiFi**
+  - Any FTP server running on port 2121
+- PS4 and Android device on the **same Wi-Fi network**
+
+### Build
+- Android Studio Hedgehog (2023.1) or newer
+- JDK 17
+- Android SDK: API 29 (min) – API 35 (compile)
+- Kotlin 2.0
+- Jetpack Compose 1.7
 
 ---
 
-## 🚀 Compilar el proyecto
+## 🚀 Build & Install
 
-### Prerrequisitos
-- Android Studio Hedgehog+ o superior
-- JDK 17
-- Android SDK (API 29–35)
+### From Android Studio
 
-### Pasos
+1. Clone the repository:
 
 ```bash
-git clone https://github.com/RastaFairy/FPKGi-Android.git
-cd FPKGi-Android
-./gradlew assembleDebug
-# APK en: app/build/outputs/apk/debug/
+git clone https://github.com/RastaFairy/FPKGi-A-.git
+cd FPKGi-A-
 ```
 
-### Compilar release
+2. Open the project in Android Studio.
+3. Sync Gradle, then **Run → Run 'app'**.
+
+### From command line
+
+```bash
+./gradlew assembleDebug
+# APK → app/build/outputs/apk/debug/app-debug.apk
+```
+
+### Release build
 
 ```bash
 ./gradlew assembleRelease
-# Firma el APK con tu keystore
+# Sign with your keystore before distributing
 ```
 
 ---
 
-## ⚙️ Configuración FTP
+## 📡 FTP Configuration
 
-1. **Abre la app** → toca ⚙️ *Ajustes*
-2. **Habilita FTP** con el toggle
-3. **Rellena los campos**:
-   - IP de tu PS4 (Ajustes → Red → Ver estado de conexión)
-   - Puerto: `2121`
-   - Usuario: `anonymous`
-   - Directorio: `/data/pkg`
-4. **Prueba la conexión** → debe aparecer ✅
-5. **Guarda** y empieza a descargar 🎮
+Open **Settings** in the app and fill in:
 
----
-
-## 📦 Formatos de catálogo soportados
-
-### FPKGi dict
-```json
-{
-  "DATA": {
-    "https://example.com/game.pkg": {
-      "title_id": "CUSA00001",
-      "name": "Mi Juego",
-      "version": "01.05",
-      "region": "EUR",
-      "size": 5368709120,
-      "min_fw": "9.00",
-      "cover_url": "https://example.com/cover.jpg"
-    }
-  }
-}
-```
-
-### PS4PKGInstaller list
-```json
-{
-  "packages": [
-    {
-      "title_id": "CUSA00001",
-      "name": "Mi Juego",
-      "version": "01.05",
-      "region": "EUR",
-      "size": "5.0 GB",
-      "system_version": "9.00",
-      "icon_url": "https://example.com/cover.jpg",
-      "pkg_url": "https://example.com/game.pkg"
-    }
-  ]
-}
-```
+| Field | Default | Description |
+|-------|---------|-------------|
+| Host | `192.168.1.XXX` | Your PS4's local IP address |
+| Port | `2121` | FTP server port |
+| Username | `anonymous` | Leave blank for GoldHEN |
+| Password | *(empty)* | Leave blank for GoldHEN |
+| Remote path | `/data/pkg` | Destination folder on the PS4 |
+| Passive mode | ✓ enabled | Required for most home networks |
 
 ---
 
-## 🏗️ Arquitectura
+## 📁 Project Structure
 
 ```
-FPKGi-Android/
-├── app/src/main/java/com/fpkgi/manager/
-│   ├── MainActivity.kt               # Entry point + navegación
-│   ├── MainViewModel.kt              # ViewModel principal
-│   ├── data/
-│   │   ├── model/Models.kt           # Modelos de datos
-│   │   └── repository/SettingsRepository.kt  # DataStore
-│   ├── network/
-│   │   ├── FtpDownloadService.kt     # Servicio FTP foreground
-│   │   └── OrbisClient.kt           # Cliente OrbisPatches
-│   ├── ui/
-│   │   ├── screens/
-│   │   │   ├── GameListScreen.kt     # Pantalla principal
-│   │   │   ├── GameDetailScreen.kt   # Detalle + parches
-│   │   │   ├── DownloadsScreen.kt    # Gestor descargas
-│   │   │   └── SettingsScreen.kt    # Config FTP
-│   │   ├── components/Components.kt  # Componentes reutilizables
-│   │   └── theme/Theme.kt           # Tema oscuro PS4
-│   └── utils/JsonParser.kt          # Parser de catálogos
+FPKGi-A-/
+├── app/
+│   └── src/main/
+│       ├── java/com/fpkgi/manager/
+│       │   ├── MainActivity.kt          # Entry point
+│       │   ├── MainViewModel.kt         # MVVM state + business logic
+│       │   ├── data/
+│       │   │   ├── model/Models.kt      # Data classes (Game, Patch, Config)
+│       │   │   └── repository/
+│       │   │       └── SettingsRepository.kt   # DataStore persistence
+│       │   ├── i18n/
+│       │   │   └── StringResources.kt   # Multilingual string system
+│       │   ├── network/
+│       │   │   ├── FtpDownloadService.kt  # Foreground FTP transfer service
+│       │   │   └── OrbisClient.kt         # OrbisPatches HTTP client
+│       │   └── ui/
+│       │       ├── components/
+│       │       │   └── Components.kt    # Reusable Compose components
+│       │       ├── screens/
+│       │       │   ├── GameListScreen.kt
+│       │       │   ├── GameDetailScreen.kt
+│       │       │   ├── DownloadsScreen.kt
+│       │       │   └── SettingsScreen.kt
+│       │       └── theme/Theme.kt       # Material 3 PS4-inspired dark theme
+│       └── utils/
+│           └── JsonParser.kt            # Dual JSON format parser
+├── gradle/libs.versions.toml            # Version catalog
 └── .github/
     ├── workflows/
-    │   ├── ci.yml                    # CI: build en cada push
-    │   └── release.yml              # Release: APK firmado en tag
-    └── ISSUE_TEMPLATE/             # Templates de issues
+    │   ├── ci.yml                       # Debug APK on every push to main
+    │   └── release.yml                  # Release APK on tag v*
+    └── ISSUE_TEMPLATE/
+        ├── bug_report.yml
+        └── feature_request.yml
 ```
 
-**Stack tecnológico:**
-- **Kotlin** — lenguaje principal
-- **Jetpack Compose** — UI declarativa moderna
-- **Material 3** — design system
-- **Coroutines + Flow** — concurrencia reactiva
-- **DataStore** — persistencia de configuración
-- **Apache Commons Net** — cliente FTP robusto
-- **Coil** — carga de imágenes asíncrona
-- **WorkManager** — descargas en segundo plano
+---
+
+## 🏗️ Architecture
+
+The app follows the **MVVM** pattern with a unidirectional data flow:
+
+```
+UI Screens (Compose)
+       ↕
+MainViewModel (StateFlow)
+       ↕
+Repositories / Network clients
+       ↕
+DataStore / FTP / HTTP
+```
+
+- **`MainViewModel`** — single source of truth for game list, download states, patch data
+- **`FtpDownloadService`** — Android foreground service ensuring transfers survive screen-off
+- **`OrbisClient`** — coroutine-based HTTP client for OrbisPatches
+- **`JsonParser`** — parses both JSON catalogue formats into unified `Game` model
 
 ---
 
-## 📡 CI/CD
+## 🤝 Contributing
 
-El proyecto incluye GitHub Actions configuradas:
+1. Fork the repository and create a feature branch.
+2. Ensure the project builds with `./gradlew assembleDebug`.
+3. Open a Pull Request against `main`.
 
-- **CI** (`ci.yml`): Se ejecuta en cada push/PR a `main` y `develop`. Compila el APK debug.
-- **Release** (`release.yml`): Se ejecuta al crear un tag `v*.*`. Genera y publica el APK firmado.
-
-### Secrets necesarios para Release
-
-| Secret | Descripción |
-|--------|-------------|
-| `SIGNING_KEY_BASE64` | Keystore en base64 |
-| `SIGNING_KEY_ALIAS` | Alias de la clave |
-| `SIGNING_KEY_PASSWORD` | Contraseña de la clave |
-| `SIGNING_STORE_PASSWORD` | Contraseña del keystore |
+Use the **Bug Report** or **Feature Request** issue templates.
 
 ---
 
-## 🤝 Contribuir
+## 📜 Credits
 
-1. Fork el repositorio
-2. Crea una rama: `git checkout -b feature/mi-funcion`
-3. Haz tus cambios y commits
-4. Push: `git push origin feature/mi-funcion`
-5. Abre un Pull Request
-
----
-
-## 📜 Créditos
-
-- **Concepto original:** Bucanero (PSP Homebrew)
-- **Puerto PS4/PS5:** ItsJokerZz
-- **Python Edition:** RastaFairy
-- **Android Port:** RastaFairy
+| Role | Name |
+|------|------|
+| Original concept (PSP Homebrew) | [Bucanero](https://github.com/bucanero) |
+| PS4 / PS5 port | ItsJokerZz |
+| Python edition | RastaFairy |
+| Android port | RastaFairy |
 
 ---
 
-## ⚖️ Licencia
+## 📄 License
 
-MIT License — consulta [LICENSE](LICENSE) para más detalles.
-
-> ⚠️ **Aviso:** Esta aplicación es solo para uso con copias legítimas de software.
-> Respetar los derechos de autor de los desarrolladores de videojuegos.
+[MIT](LICENSE) © RastaFairy
