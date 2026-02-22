@@ -196,7 +196,7 @@ El proyecto incluye GitHub Actions configuradas:
 - **Concepto original:** Bucanero (PSP Homebrew)
 - **Puerto PS4/PS5:** ItsJokerZz
 - **Python Edition:** RastaFairy
-- **Android Port:** FPKGi Team
+- **Android Port:** RastaFairy
 
 ---
 
