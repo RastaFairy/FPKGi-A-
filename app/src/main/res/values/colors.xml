@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="bg_dark">#FF0F0F1A</color>
-    <color name="navy_mid">#FF16213E</color>
-    <color name="navy_deep">#FF0F3460</color>
-    <color name="cyber_blue">#FF00D4FF</color>
-    <color name="neon_green">#FF00FF99</color>
-    <color name="text_primary">#FFE0E0E0</color>
-</resources>
