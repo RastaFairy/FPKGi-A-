@@ -31,8 +31,8 @@ android {
             )
         }
         debug {
-            isDebuggable = false
-            applicationIdSuffix = ".release"
+            isDebuggable = true
+            applicationIdSuffix = ".debug"
         }
     }
 
