@@ -18,7 +18,6 @@
 ## 📋 Índice
 
 - [Características](#-características)
-- [Capturas de pantalla](#-capturas-de-pantalla)
 - [Requisitos](#-requisitos)
 - [Instalación](#-instalación)
 - [Uso](#-uso)
@@ -44,12 +43,6 @@
 | 🌐 **6 Idiomas** | Español, inglés, alemán, francés, italiano y japonés |
 | 🆕 **Auto-actualización** | Detecta nuevas versiones en GitHub Releases e instala sin salir de la app |
 | 🎨 **Tema oscuro** | Paleta navy/cyan/dorado optimizada para OLED |
-
----
-
-## 📱 Capturas de pantalla
-
-> *(Añade tus capturas en `assets/` y enlázalas aquí)*
 
 ---
 
