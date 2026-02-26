@@ -1,7 +1,7 @@
 # FPKGi Manager — Android
 
 <p align="center">
-  <img src="assets/banner.png" alt="FPKGi Manager" width="600"/>
+  <img src="banner.png" alt="FPKGi Manager" width="600"/>
 </p>
 
 <p align="center">
