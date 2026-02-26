@@ -18,7 +18,6 @@
 ## 📋 Table of Contents
 
 - [Features](#-features)
-- [Screenshots](#-screenshots)
 - [Requirements](#-requirements)
 - [Installation](#-installation)
 - [Usage](#-usage)
@@ -44,12 +43,6 @@
 | 🌐 **6 Languages** | Spanish, English, German, French, Italian, Japanese |
 | 🆕 **Auto-Update** | Detects new app versions from GitHub Releases and installs in-app |
 | 🎨 **Dark Theme** | Navy/cyan/gold colour palette optimised for OLED |
-
----
-
-## 📱 Screenshots
-
-> *(Add your own screenshots in `assets/` and link them here)*
 
 ---
 
