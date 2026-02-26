@@ -1,0 +1,52 @@
+name: ✨ Feature Request
+description: Proponer una nueva función o mejora
+labels: ["enhancement"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ¡Gracias por tu sugerencia! Describe la función que te gustaría ver.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: ¿Qué problema resuelve?
+      placeholder: "Actualmente no puedo... / Sería útil poder..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solución propuesta
+      placeholder: "Me gustaría que la app pudiera..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Categoría
+      options:
+        - Descarga FTP
+        - Descarga local
+        - UI / Interfaz
+        - OrbisPatches
+        - Gestión de catálogos
+        - Rendimiento
+        - Otro
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternativas consideradas
+      placeholder: "He pensado en... pero preferiría..."
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Contexto adicional
+      placeholder: "Cualquier otra información relevante..."
