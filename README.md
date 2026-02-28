@@ -52,6 +52,7 @@
 - A JSON file exported from FPKGi or PS4PKGInstaller
 - For FTP upload: a PS4 running a compatible FTP server (e.g. `ftpd`, `PS4FTP`, `goldhen ftpd`)
 - For in-app install: allow installation from unknown sources when prompted
+- It is necessary to enable app permissions; some users report that if they are not enabled, the JSON files do not load
 
 ---
 
