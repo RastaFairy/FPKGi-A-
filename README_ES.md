@@ -52,7 +52,7 @@
 - Un fichero JSON exportado desde FPKGi o PS4PKGInstaller
 - Para FTP: una PS4 con servidor FTP compatible (por ejemplo `ftpd`, `PS4FTP`, `goldhen ftpd`)
 - Para la instalación in-app: permitir instalación desde fuentes desconocidas cuando se solicite
-
+- Es necesario activar los permisos para la app, algunos usuarios reportan que si no se activan, los json, no son cargados.
 ---
 
 ## 📥 Instalación
